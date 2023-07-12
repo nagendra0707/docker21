@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapps  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapps
+  template:
+    metadata:
+      labels:
+        app: myapps
+    spec:
+      containers:
+        - name: myapps
+          image: nagendradisamcharla/docker21-dotnet6:latest
+          ports:
+            - containerPort: 80
