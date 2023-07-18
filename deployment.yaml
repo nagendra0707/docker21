@@ -18,5 +18,5 @@ spec:
           image: naga1919.azurecr.io/naga1919:1.0.0
           ports:
             - containerPort: 80
-    imagePullSecret:
-                    -name: acr-alex
+      imagePullSecret:
+           -name: acr-alex
