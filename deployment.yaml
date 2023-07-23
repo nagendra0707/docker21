@@ -1,4 +1,4 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: MYAPP
@@ -6,10 +6,10 @@ metadata:
   labels:
     app: MYAPP
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: MYAPP
-  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -20,12 +20,11 @@ spec:
       labels:
         app: MYAPP
     spec:
-      imagePullSecrets: # Move the imagePullSecrets field here
+      imagePullSecrets:
         - name: acr-alex
       containers:
       - name: MYAPP
         image: munna2218.azurecr.io/munna2218:1.0.3
-        # Rest of your container configuration...
         resources:
           requests:
             cpu: 100m
