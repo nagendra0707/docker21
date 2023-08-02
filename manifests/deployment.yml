@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: nagendradocker 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nagendradocker
+  template:
+    metadata:
+      labels:
+        app: nagendradocker 
+    spec:
+      containers:
+        - name: nagendradocker 
+          image: acrnaga.azurecr.io/nagendradocker
+          ports:
+          - containerPort: 5000
